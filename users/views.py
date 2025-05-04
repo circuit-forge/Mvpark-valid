@@ -28,9 +28,11 @@ def join_waitlist(request):
 def show_waitlist(request):
     emails = [entry.email for entry in Waitlist.objects.all()]
     return HttpResponse("<br>".join(emails))
+
+
 def count_signups(request):
-    count = len(emails)
-    return HttpResponse(<h1> ' Total signups ' , count<h1>)
+    count = Waitlist.objects.count()
+    return HttpResponse(f"<h1>Total signups: {count}</h1>")
 
 
 
