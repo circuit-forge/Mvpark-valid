@@ -1,0 +1,28 @@
+from django.shortcuts import render, redirect
+from django.contrib import messages
+
+def landing_page(request):
+    return render(request, 'users/landing_page.html')
+
+from django.contrib import messages
+from django.shortcuts import render, redirect
+from .models import Waitlist  # Import your model if you have one
+
+def join_waitlist(request):
+    if request.method == "POST":
+        email = request.POST.get('email')
+
+        # Check if email already exists
+        if Waitlist.objects.filter(email=email).exists():
+            messages.error(request, "This email is already registered!")
+        else:
+            Waitlist.objects.create(email=email)
+            messages.success(request, "Thanks for joining the waitlist!")
+
+        return redirect('/')
+        
+    return redirect('/')
+
+
+
+
