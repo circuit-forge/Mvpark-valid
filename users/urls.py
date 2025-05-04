@@ -4,5 +4,7 @@ from . import views
 urlpatterns = [
     path('', views.landing_page, name='landing'),  # Landing page view
     path('join-waitlist/', views.join_waitlist, name='join_waitlist'),
+    path("debug-waitlist/", views.show_waitlist),
+
 
 ]
