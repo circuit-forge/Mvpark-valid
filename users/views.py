@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.http import HttpResponse
+
 
 def landing_page(request):
     return render(request, 'users/landing_page.html')
