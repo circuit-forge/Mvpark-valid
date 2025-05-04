@@ -26,7 +26,7 @@ def join_waitlist(request):
     return redirect('/')
 
 def show_waitlist(request):
-    emails = [entry.email for entry in Waitlist.objects.all()]
+    emails = [entry.email for entry in Waitlist.objects.all().delete()]
     return HttpResponse("<br>".join(emails))
 
 
